@@ -1,11 +1,6 @@
-Vantage-Comment:
-    ************************************************
-    * This file was generated from DESCRIPTION.tpl *
-    * Please don't modify it directly!             *
-    ************************************************
-Package: vtg.coxph
+Package: {{PKG_NAME}}
 Type: Package
-Title: 
+Title: Cox Proportional Hazards implementation for the vantage6 infrastructure
 Version: 0.1.0
 Author:
     Frank Martin <f.martin@iknl.nl>,
@@ -26,4 +21,6 @@ Imports:
     vtg
 Remotes:
     mellesies/vtg
-RoxygenNote: 7.1.0
+RoxygenNote: 7.0.0
+
+
