@@ -1,5 +1,5 @@
 #' Split the dataframe column wise into covariate, censor and time columns.
-preprocess.data <- function(df, expl_vars, censor_col, time_col, subset) {
+preprocess.data <- function(df, expl_vars, censor_col, time_col) {
 
     if(!is.null(subset)){
         df <- df[which(df[,"serial_no"] %in% subset),]
