@@ -4,7 +4,7 @@
 \alias{preprocess.data}
 \title{Split the dataframe column wise into covariate, censor and time columns.}
 \usage{
-preprocess.data(df, expl_vars, censor_col, time_col, subset)
+preprocess.data(df, expl_vars, censor_col, time_col)
 }
 \description{
 Split the dataframe column wise into covariate, censor and time columns.
