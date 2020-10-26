@@ -4,7 +4,7 @@
 \alias{dcoxph}
 \title{Run the distributed CoxPH algorithm.}
 \usage{
-dcoxph(client, expl_vars, time_col, censor_col, subset)
+dcoxph(client, expl_vars, time_col, censor_col, subset = c())
 }
 \description{
 Params:

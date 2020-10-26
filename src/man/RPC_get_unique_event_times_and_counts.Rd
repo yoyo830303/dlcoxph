@@ -4,7 +4,7 @@
 \alias{RPC_get_unique_event_times_and_counts}
 \title{Return a dataframe of unique event times}
 \usage{
-RPC_get_unique_event_times_and_counts(df, time_col, censor_col, subset)
+RPC_get_unique_event_times_and_counts(df, time_col, censor_col, subset = c())
 }
 \description{
 Params:
