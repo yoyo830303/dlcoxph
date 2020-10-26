@@ -11,7 +11,7 @@
 #'
 #' Return:
 #'   list containing aggretated statistics
-RPC_perform_iteration <- function(df, expl_vars, time_col, censor_col, subset, beta, unique_event_times) {
+RPC_perform_iteration <- function(df, expl_vars, time_col, censor_col, subset=c(), beta, unique_event_times) {
     data <- preprocess.data(df, expl_vars, censor_col, time_col, subset)
 
     D <- length(unique_event_times)
