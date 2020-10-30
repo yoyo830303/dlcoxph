@@ -4,7 +4,7 @@
 \alias{dcoxph.mock}
 \title{Run the distributed CoxPH algorithm locally}
 \usage{
-dcoxph.mock(df, expl_vars, time_col, censor_col, serial = c(), splits = 5)
+dcoxph.mock(df, expl_vars, time_col, censor_col, serial_no = c(), splits = 5)
 }
 \description{
 Splits the provided data frame in `splits` equal parts and runs
@@ -17,6 +17,7 @@ Params:
   time_col: name of the column that contains the event/censor times
   censor_col: name of the colunm that explains whether an event occured or
               the patient was censored
+  serial_no: set of the serial_no column that explains whether a patient included in the analysis or not
   splits: number of parts to split the data set in
 
 Return:

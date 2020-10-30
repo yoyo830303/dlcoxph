@@ -9,7 +9,7 @@ RPC_perform_iteration(
   expl_vars,
   time_col,
   censor_col,
-  serial,
+  serial_no,
   beta,
   unique_event_times
 )

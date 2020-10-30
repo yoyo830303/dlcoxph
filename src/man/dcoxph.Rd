@@ -4,7 +4,7 @@
 \alias{dcoxph}
 \title{Run the distributed CoxPH algorithm.}
 \usage{
-dcoxph(client, expl_vars, time_col, censor_col, serial = c())
+dcoxph(client, expl_vars, time_col, censor_col, serial_no)
 }
 \description{
 Params:
@@ -13,7 +13,7 @@ Params:
   time_col: name of the column that contains the event/censor times
   censor_col: name of the column that explains whether an event occured or
               the patient was censored
-  subset: set of the serial_no column that explains whether a patient included in the analysis or not
+  serial_no: set of the serial_no column that explains whether a patient included in the analysis or not
 }
 \details{
 Return:
