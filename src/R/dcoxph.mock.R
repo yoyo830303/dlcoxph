@@ -9,12 +9,13 @@
 #'   time_col: name of the column that contains the event/censor times
 #'   censor_col: name of the colunm that explains whether an event occured or
 #'               the patient was censored
+#'   serial_no: set of the serial_no column that explains whether a patient included in the analysis or not
 #'   splits: number of parts to split the data set in
 #'
 #' Return:
 #'   data.frame with beta, p-value and confidence interval for each explanatory
 #'   variable.
-dcoxph.mock <- function(df, expl_vars, time_col, censor_col, serial=c(), splits=5) {
+dcoxph.mock <- function(df, expl_vars, time_col, censor_col, serial_no=c(), splits=5) {
 
     datasets <- list()
 

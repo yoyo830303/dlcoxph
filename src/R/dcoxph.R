@@ -6,13 +6,13 @@
 #'   time_col: name of the column that contains the event/censor times
 #'   censor_col: name of the column that explains whether an event occured or
 #'               the patient was censored
-#'   subset: set of the serial_no column that explains whether a patient included in the analysis or not
+#'   serial_no: set of the serial_no column that explains whether a patient included in the analysis or not
 #'
 #' Return:
 #'   data.frame with beta, p-value and confidence interval for each explanatory variable
 #'   and the baseline hazard.
 #'
-dcoxph <- function(client, expl_vars, time_col, censor_col, serial=c()) {
+dcoxph <- function(client, expl_vars, time_col, censor_col, serial_no) {
     MAX_COMPLEXITY = 250000
     USE_VERBOSE_OUTPUT = getOption('vtg.verbose_output', F)
 
@@ -26,7 +26,7 @@ dcoxph <- function(client, expl_vars, time_col, censor_col, serial=c()) {
     # Run in a MASTER container
     if (client$use.master.container) {
         vtg::log$debug("Running `dcoxph` in master container using image '{image.name}'")
-        result <- client$call("dcoxph", expl_vars, time_col, censor_col, serial)
+        result <- client$call("dcoxph", expl_vars, time_col, censor_col, serial_no)
         return(result)
     }
 
@@ -35,7 +35,7 @@ dcoxph <- function(client, expl_vars, time_col, censor_col, serial=c()) {
 
     # Ask all nodes to return their unique event times with counts
     vtg::log$debug("Getting unique event times and counts")
-    results <- client$call("get_unique_event_times_and_counts", time_col, censor_col, serial)
+    results <- client$call("get_unique_event_times_and_counts", time_col, censor_col, serial_no)
 
     Ds <- lapply(results, as.data.frame)
 
@@ -53,7 +53,7 @@ dcoxph <- function(client, expl_vars, time_col, censor_col, serial=c()) {
 
     # Ask all nodes to compute the summed Z statistic
     vtg::log$debug("Getting the summed Z statistic")
-    summed_zs <- client$call("compute_summed_z", expl_vars, time_col, censor_col, serial)
+    summed_zs <- client$call("compute_summed_z", expl_vars, time_col, censor_col, serial_no)
 
     # z_hat: vector of same length m
     # Need to jump through a few hoops because apply simplifies a matrix with one row
@@ -83,7 +83,7 @@ dcoxph <- function(client, expl_vars, time_col, censor_col, serial=c()) {
             writeln()
         }
 
-        aggregates <- client$call("perform_iteration", expl_vars, time_col, censor_col, serial, beta, unique_event_times)
+        aggregates <- client$call("perform_iteration", expl_vars, time_col, censor_col, serial_no, beta, unique_event_times)
 
         # Compute the primary and secondary derivatives
         derivatives <- compute.derivatives(z_hat, D_all, aggregates)

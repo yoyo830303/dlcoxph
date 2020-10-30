@@ -6,10 +6,10 @@
 #'
 #' Return:
 #'   dataframe with columns time and Freq
-RPC_get_unique_event_times_and_counts <- function(df, time_col, censor_col, serial) {
+RPC_get_unique_event_times_and_counts <- function(df, time_col, censor_col, serial_no) {
 
-    if(!is.null(serial)){
-      df <- df[which(df[,"serial_no"] %in% serial),]
+    if(!is.null(serial_no)){
+      df <- df[which(df[,"serial_no"] %in% serial_no),]
     }
 
     time <- df[df[, censor_col]==1, time_col]
