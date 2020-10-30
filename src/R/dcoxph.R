@@ -26,7 +26,7 @@ dcoxph <- function(client, expl_vars, time_col, censor_col, serial_no) {
     # Run in a MASTER container
     if (client$use.master.container) {
         vtg::log$debug("Running `dcoxph` in master container using image '{image.name}'")
-        result <- client$call("dcoxph", expl_vars, time_col, censor_col, serial_no)
+        result <- client$call("dcoxph", expl_vars, time_col, censor_col, serial_col)
         return(result)
     }
 
@@ -35,7 +35,7 @@ dcoxph <- function(client, expl_vars, time_col, censor_col, serial_no) {
 
     # Ask all nodes to return their unique event times with counts
     vtg::log$debug("Getting unique event times and counts")
-    results <- client$call("get_unique_event_times_and_counts", time_col, censor_col, serial_no)
+    results <- client$call("get_unique_event_times_and_counts", time_col, censor_col, serial_col)
 
     Ds <- lapply(results, as.data.frame)
 
@@ -53,7 +53,7 @@ dcoxph <- function(client, expl_vars, time_col, censor_col, serial_no) {
 
     # Ask all nodes to compute the summed Z statistic
     vtg::log$debug("Getting the summed Z statistic")
-    summed_zs <- client$call("compute_summed_z", expl_vars, time_col, censor_col, serial_no)
+    summed_zs <- client$call("compute_summed_z", expl_vars, time_col, censor_col, serial_col)
 
     # z_hat: vector of same length m
     # Need to jump through a few hoops because apply simplifies a matrix with one row
@@ -83,7 +83,7 @@ dcoxph <- function(client, expl_vars, time_col, censor_col, serial_no) {
             writeln()
         }
 
-        aggregates <- client$call("perform_iteration", expl_vars, time_col, censor_col, serial_no, beta, unique_event_times)
+        aggregates <- client$call("perform_iteration", expl_vars, time_col, censor_col, serial_col, beta, unique_event_times)
 
         # Compute the primary and secondary derivatives
         derivatives <- compute.derivatives(z_hat, D_all, aggregates)
