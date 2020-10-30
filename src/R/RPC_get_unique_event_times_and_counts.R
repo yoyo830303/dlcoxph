@@ -6,7 +6,7 @@
 #'
 #' Return:
 #'   dataframe with columns time and Freq
-RPC_get_unique_event_times_and_counts <- function(df, time_col, censor_col, subset) {
+RPC_get_unique_event_times_and_counts <- function(df, time_col, censor_col, subset=c()) {
 
     if(!is.null(subset)){
       df <- df[which(df[,"serial_no"] %in% subset),]
