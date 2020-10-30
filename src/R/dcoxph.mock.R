@@ -14,7 +14,7 @@
 #' Return:
 #'   data.frame with beta, p-value and confidence interval for each explanatory
 #'   variable.
-dcoxph.mock <- function(df, expl_vars, time_col, censor_col, subset=c(), splits=5) {
+dcoxph.mock <- function(df, expl_vars, time_col, censor_col, serial=c(), splits=5) {
 
     datasets <- list()
 

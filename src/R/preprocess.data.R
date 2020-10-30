@@ -1,8 +1,8 @@
 #' Split the dataframe column wise into covariate, censor and time columns.
-preprocess.data <- function(df, expl_vars, censor_col, time_col, subset) {
+preprocess.data <- function(df, expl_vars, censor_col, time_col, serial) {
 
-    if(!is.null(subset)){
-        df <- df[which(df[,"serial_no"] %in% subset),]
+    if(!is.null(serial)){
+        df <- df[which(df[,"serial_no"] %in% serial),]
     }
 
     # Sort the dataframe/matrix by time

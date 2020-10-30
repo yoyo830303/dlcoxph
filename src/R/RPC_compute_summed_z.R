@@ -11,9 +11,9 @@
 #'
 #' Return:
 #'   numeric vector with sums and named index with covariates.
-RPC_compute_summed_z <- function(df, expl_vars, time_col, censor_col, subset) {
+RPC_compute_summed_z <- function(df, expl_vars, time_col, censor_col, serial) {
 
-    data <- preprocess.data(df, expl_vars, censor_col, time_col, subset)
+    data <- preprocess.data(df, expl_vars, censor_col, time_col, serial)
 
     # Set condition to enable univariate Cox
     if (dim(data$Z)[2] > 1) {
