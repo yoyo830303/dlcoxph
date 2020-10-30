@@ -12,7 +12,7 @@
 #'   data.frame with beta, p-value and confidence interval for each explanatory variable
 #'   and the baseline hazard.
 #'
-dcoxph <- function(client, expl_vars, time_col, censor_col, serial_no) {
+dcoxph <- function(client, expl_vars, time_col, censor_col, serial_col) {
     MAX_COMPLEXITY = 250000
     USE_VERBOSE_OUTPUT = getOption('vtg.verbose_output', F)
 
