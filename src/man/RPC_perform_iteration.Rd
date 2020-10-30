@@ -9,7 +9,7 @@ RPC_perform_iteration(
   expl_vars,
   time_col,
   censor_col,
-  subset,
+  subset = c(),
   beta,
   unique_event_times
 )
