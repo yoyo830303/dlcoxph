@@ -3,13 +3,13 @@
 
 # PKG_NAME is based on the name of the folder that holds this code
 # (i.e. the name of the directory that contains 'src')
-$(eval PKG_NAME := $(shell Rscript -e "cat(basename(dirname(getwd())))"))
+$(eval PKG_NAME := $(shell Rscript -e "cat(basename(getwd()))"))
 
 # These variables can be set as environment variables or as arguments to `make`
 HOST ?= harbor.distributedlearning.ai
 IMAGE ?= vantage/${PKG_NAME}
 TAG ?= trolltunga
-$(eval PWD := $(shell Rscript -e "cat(dirname(getwd()))"))
+$(eval PWD := $(shell Rscript -e "cat(getwd())"))
 
 help:
 	@echo "Run ..."
