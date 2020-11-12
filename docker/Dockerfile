@@ -7,7 +7,7 @@ FROM custom-r-base
 # docker build with '--build-arg PKG_NAME=...'
 ARG PKG_NAME='algorithm'
 
-LABEL maintainer="Jing-Rong Jhuang <yoyo830303@cph.ntu.edu.tw>"
+LABEL maintainer="Melle Sieswerda <m.sieswerda@iknl.nl>"
 
 # Install federated chisq package
 COPY src /usr/local/R/${PKG_NAME}/
