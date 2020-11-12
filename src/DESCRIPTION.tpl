@@ -7,9 +7,8 @@ Description: This package can be used with the vantage6 federated
 Author:
     Frank Martin <f.martin@iknl.nl>,
     Gijs Geleijnse <g.geleijnse@iknl.nl>,
-    Melle Sieswerda <m.sieswerda@iknl.nl>,
-    Jing-Rong Jhuang <yoyo830303@cph.ntu.edu.tw>
-Maintainer: Jing-Rong Jhuang <yoyo830303@cph.ntu.edu.tw>
+    Melle Sieswerda <m.sieswerda@iknl.nl>
+Maintainer: Melle Sieswerda <m.sieswerda@iknl.nl>
 License: MIT
 Encoding: UTF-8
 LazyData: true
