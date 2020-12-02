@@ -7,8 +7,8 @@ $(eval PKG_NAME := $(shell Rscript -e "cat(basename(dirname(getwd())))"))
 
 # These variables can be set as environment variables or as arguments to `make`
 HOST ?= harbor.distributedlearning.ai
-IMAGE ?= vantage/${PKG_NAME}
-TAG ?= trolltunga
+IMAGE ?= tcr/${PKG_NAME}
+TAG ?= latest
 $(eval PWD := $(shell Rscript -e "cat(dirname(getwd()))"))
 
 help:
